@@ -1,0 +1,25 @@
+{
+  "name": "W21-CS471",
+  "version": "1.0.0",
+  "description": "Motorcycle project for CS-471 Winter 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmbutalsodm/W21-CS471.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmbutalsodm/W21-CS471/issues"
+  },
+  "homepage": "https://github.com/dmbutalsodm/W21-CS471#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.1"
+  }
+}
