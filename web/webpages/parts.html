@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Parts</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+	</head>
+	<body onLoad = "populateTable()">
+		<div id="mainContainer">
+		<div class="box" style="width: 50%;">
+			<p style="text-align: center" class="title">Parts</p>
+			<table id="table" border="2" style="margin-left:auto;margin-right:auto;">
+			</table>
+		</div>
+	</body>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+		function populateTable() 
+		{
+			axios.get('http://localhost:3001/parts').then(response => 
+			{
+				let jsonData = response.data;
+				let dataArr = JSON.parse(jsonData);
+				
+				// Get the table by ID
+				let table = document.getElementById("table");
+				
+				generateTableHead(table, JSON.parse(dataArr[0]));
+				generateTable(table, dataArr);
+			})
+		}
+		
+		function generateTableHead(table, data)
+		{
+			// Create new table row
+			let row  = table.insertRow();
+			
+			// Convert data to a js object and grab its keys to populate cells
+			let keys = Object.keys(data);
+
+			// Iterate backwards over keys to populate cells
+			for(let i = keys.length - 1; i >= 0; i--) 
+			{
+				let cell     = row.insertCell("th");
+				let key      = keys[i];
+				let text 	 = key.charAt(0).toUpperCase() + key.slice(1);
+				let textNode = document.createTextNode(text);
+
+				cell.appendChild(textNode);
+			}
+		}
+		
+		function generateTable(table, dataArr) 
+		{
+			// Iterate over rows
+			for(let element of dataArr) 
+			{
+				// Create new table row
+				let row  = table.insertRow();
+				
+				// Convert data to a js object and grab its keys to populate cells
+				let data = JSON.parse(element);
+				let keys = Object.keys(data);
+
+				// Iterate backwards over keys to populate cells
+				for(let i = keys.length - 1; i >= 0; i--) 
+				{
+				  let cell = row.insertCell("td");
+				  let text = document.createTextNode(data[keys[i]]);
+				  
+				  cell.appendChild(text);
+				}
+			}
+		}
+	</script>
+	<style>
+		#mainContainer {
+			padding-top: 20vh;
+			margin-right: 10%;
+			margin-left: 10%;
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+		}
+	</style>
+</html>
