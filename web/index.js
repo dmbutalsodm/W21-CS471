@@ -15,6 +15,13 @@ app.get('/splash', function (req, res) {
   res.sendFile(path.join(__dirname + '/webpages/splash.html'));
 })
 
+app.get('/business', function (req, res) {
+  res.sendFile(path.join(__dirname + '/webpages/business.html'));
+})
+
+app.get('/customer', function (req, res) {
+  res.sendFile(path.join(__dirname + '/webpages/customer.html'));
+
 app.get('/merchandise', function (req, res) {
   res.sendFile(path.join(__dirname + '/webpages/merchandise.html'));
 })
