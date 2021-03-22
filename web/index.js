@@ -14,6 +14,14 @@ app.get('/login', function (req, res) {
 app.get('/splash', function (req, res) {
   res.sendFile(path.join(__dirname + '/webpages/splash.html'));
 })
+
+app.get('/business', function (req, res) {
+  res.sendFile(path.join(__dirname + '/webpages/business.html'));
+})
+
+app.get('/customer', function (req, res) {
+  res.sendFile(path.join(__dirname + '/webpages/customer.html'));
+})
  
 app.listen(80)
 console.log("Website Launched on port 80");
