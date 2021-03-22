@@ -21,6 +21,17 @@ app.get('/business', function (req, res) {
 
 app.get('/customer', function (req, res) {
   res.sendFile(path.join(__dirname + '/webpages/customer.html'));
+
+app.get('/merchandise', function (req, res) {
+  res.sendFile(path.join(__dirname + '/webpages/merchandise.html'));
+})
+
+app.get('/parts', function (req, res) {
+  res.sendFile(path.join(__dirname + '/webpages/parts.html'));
+})
+
+app.get('/motorcycles', function (req, res) {
+  res.sendFile(path.join(__dirname + '/webpages/motorcycles.html'));
 })
  
 app.listen(80)
